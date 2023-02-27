@@ -17,12 +17,12 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 async function run() {
     try {
         await client.connect();
-        const productCollection = client.db('Islamic').collection('Attars');
+        const attarCollection = client.db('Islamic').collection('Attars');
         
         // get product api
         app.get('/attars', async (req, res) => {
             const query = {};
-            const cursor = productCollection.find(query);
+            const cursor = attarCollection.find(query);
             const products = await cursor.toArray();
             res.send(products);
         });
@@ -51,9 +51,9 @@ async function run() {
 run().catch(console.dir);
 
 app.get('/', (req, res) => {
-    res.send(('hello from mahsez_server'));
+    res.send(('hello from Mahsez_server'));
 });
 
 app.listen(port, () => {
-    console.log(`laptop_store00_server app listening on port${port})`);
+    console.log(`Mahsez_server app listening on port${port})`);
 });
