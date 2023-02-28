@@ -27,12 +27,12 @@ async function run() {
         });
 
         // get product details api
-        app.get('/attar/:id', async (req, res) => {
+      /*   app.get('/attar/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: ObjectId(id) };
             const product = await attarCollection.findOne(query);
             res.send(product);
-        });
+        }); */
 
 
     }
