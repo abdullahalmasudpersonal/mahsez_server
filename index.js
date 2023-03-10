@@ -109,6 +109,14 @@ async function run() {
             const product = await attarCollection.findOne(query);
             res.send(product);
         });
+
+        // delete attar api
+        app.delete('/attars/:_id', async(req, res) =>{
+            const _id = req.params._id;
+            const query = {_id: ObjectId(_id)};
+            const result = await attarCollection.deleteOne(query);
+            res.send(result);
+        })
         /* ------------------------------ End Islamics ----------------------- ---- */
 
         // post order api for database
