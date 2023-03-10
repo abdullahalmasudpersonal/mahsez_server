@@ -110,6 +110,13 @@ async function run() {
             res.send(product);
         });
 
+        // create attar api
+        app.post('/attars', async(req, res) =>{
+            const newAttar = req.body;
+            const result = await attarCollection.insertOne(newAttar);
+            res.send(result);
+        })
+
         // delete attar api
         app.delete('/attars/:_id', async(req, res) =>{
             const _id = req.params._id;
